@@ -2,11 +2,11 @@
   "name": "Lottery-api",
   "version": "0.0.1",
   "description": "Lottery API",
-  "main": "dist",
+  "main": "distLottery",
   "scripts": {
     "dev": "NODE_ENV=development nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
-    "build": "babel src -s -D -d dist --presets es2015,stage-0",
-    "start": "NODE_ENV=production pm2 start dist",
+    "build": "babel src -s -D -d distLottery --presets es2015,stage-0",
+    "start": "NODE_ENV=production pm2 start distLottery",
     "prestart": "npm run -s build",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"

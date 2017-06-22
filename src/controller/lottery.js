@@ -112,10 +112,21 @@ export default({ config, db }) => {
             });
         });
 
+        // '/v1/lottery/mynumbers' - Read
+        //Get all lotteries
+        api.get('/mynumbers/', (req, res) => {
+            MyNumbers.find({}, (err, mynumbers) => {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(mynumbers);
+            });
+        });
+
     // Update mynumbers to tie to specific lottery (once winning numbers are scraped)
     // '/v1/lottery/mynumbers/:id'
     api.put('/mynumbers/:id', authenticate, (req, res) => {
-        MyNumbers.findById(req.params.id, (err, lottery) => {
+        MyNumbers.findById(req.params.id, (err, mynumbers) => {
             if (err) {
                 res.send(err);
             };

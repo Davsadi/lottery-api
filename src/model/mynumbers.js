@@ -24,7 +24,10 @@ let MyNumbersSchema = new Schema({
         default: false
     },
     matchedNumbers: [],
-    matchedBonus: { type: Boolean },
+    matchedBonus: {
+        type: Boolean,
+        default: false
+    },
     lottery: {
         type: Schema.Types.ObjectId,
         ref: 'Lottery'

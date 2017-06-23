@@ -59,7 +59,7 @@ export default({ config, db }) => {
             if (err) {
                 res.send(err);
             }
-            res.send(lottery);
+            res.json(lottery);
         });
     });
 

@@ -10,6 +10,10 @@ export default({ config, db }) => {
 
     // CRUD - Create Read Update Delete
 
+
+
+
+
     // '/v1/lottery/add' - Create
     api.post('/add', authenticate, (req, res) => {
         let newLottery = new Lottery();
@@ -33,6 +37,17 @@ export default({ config, db }) => {
                 res.send(err);
             }
             res.json(lotterys);
+        });
+    });
+
+    // '/v1/lottery/mynumbers' - Read
+    //Get all my numbers
+    api.get('/mynumbers/', (req, res) => {
+        MyNumbers.find({}, (err, mynumbers) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(mynumbers);
         });
     });
 
@@ -112,16 +127,7 @@ export default({ config, db }) => {
             });
         });
 
-        // '/v1/lottery/mynumbers' - Read
-        //Get all lotteries
-        api.get('/mynumbers/', (req, res) => {
-            MyNumbers.find({}, (err, mynumbers) => {
-                if (err) {
-                    res.send(err);
-                }
-                res.json(mynumbers);
-            });
-        });
+
 
     // Update mynumbers to tie to specific lottery (once winning numbers are scraped)
     // '/v1/lottery/mynumbers/:id'

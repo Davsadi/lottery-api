@@ -73,7 +73,7 @@ export default({ config, db }) => {
             lottery.drawDate = req.body.drawDate;
             lottery.standardNumbers = req.body.standardNumbers;
             lottery.bonusNumber = req.body.bonusNumber;
-            lottery.myNumbers.push('594d973abf519127c2113576');
+            lottery.myNumbers.push(req.body.myNumbers);
             lottery.save(err => {
                 if (err) {
                     res.send(err);

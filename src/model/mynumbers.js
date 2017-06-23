@@ -20,10 +20,10 @@ let MyNumbersSchema = new Schema({
         required: true
     },
     checked: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: 'false'
     },
-    matchedNumbers: [Number],
+    matchedNumbers: [],
     lottery: {
         type: Schema.Types.ObjectId,
         ref: 'Lottery'

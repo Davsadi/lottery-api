@@ -156,7 +156,7 @@ export default({ config, db }) => {
                     }
                     res.json({ message: "My Numbers saved!"});
                 });*/
-            });
+
         });
     });
 

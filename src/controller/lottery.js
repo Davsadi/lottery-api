@@ -146,7 +146,7 @@ export default({ config, db }) => {
                 if (err) {
                     res.send(err);
                 }
-                lottery.mynumbers.push(newMyNumbers);
+                lottery.mynumbers.push(MyNumbers);
                 lottery.save(err => {
                     if (err) {
                         res.send(err);

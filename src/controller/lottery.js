@@ -164,6 +164,7 @@ export default({ config, db }) => {
                     }
                     res.json({ message: "Lottery updated successfully" });
                 });
+            });
         });
     });
 

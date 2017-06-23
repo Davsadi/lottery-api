@@ -137,15 +137,18 @@ export default({ config, db }) => {
             if (err) {
                 res.send(err);
             };
-            MyNumbers.gameType = req.body.gameType;
-            MyNumbers.drawDate = req.body.drawDate;
-            MyNumbers.standardNumbers = req.body.standardNumbers;
-            MyNumbers.bonusNumber = req.body.bonusNumber;
+            mynumbers.gameType = req.body.gameType;
+            mynumbers.drawDate = req.body.drawDate;
+            mynumbers.standardNumbers = req.body.standardNumbers;
+            mynumbers.bonusNumber = req.body.bonusNumber;
             //MyNumbers.lottery = req.body.lottery;
-            MyNumbers.save((err, mynumbers) => {
-                if (err) {
-                    res.send(err);
-                }
+
+            mynumbers.save(err => {
+                            if (err) {
+                                res.send(err);
+                            }
+                            res.json({ message: "My Numbers updated successfully" });
+                        });
                 /*lottery.mynumbers.push(MyNumbers);
                 lottery.save(err => {
                     if (err) {

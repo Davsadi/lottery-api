@@ -73,6 +73,7 @@ export default({ config, db }) => {
             lottery.drawDate = req.body.drawDate;
             lottery.standardNumbers = req.body.standardNumbers;
             lottery.bonusNumber = req.body.bonusNumber;
+            lottery.myNumbers.push(req.body.myNumbers);
             lottery.save(err => {
                 if (err) {
                     res.send(err);
@@ -151,19 +152,6 @@ export default({ config, db }) => {
                     res.send(err);
                 }
                 res.json({ message: "My Numbers updated successfully" });
-            });
-
-            Lottery.findById(req.body.lottery._id, (err, lottery) => {
-                if (err) {
-                    res.send(err);
-                }
-                lottery.myNumbers.push(mynumbers);
-                lottery.save(err => {
-                    if (err) {
-                        res.send(err);
-                    }
-                    res.json({ message: "Lottery updated successfully" });
-                });
             });
         });
     });

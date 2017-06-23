@@ -142,6 +142,7 @@ export default({ config, db }) => {
             mynumbers.standardNumbers = req.body.standardNumbers;
             mynumbers.bonusNumber = req.body.bonusNumber;
             mynumbers.matchedNumbers.push(req.body.matchedNumbers);
+            mynumbers.matchedBonus = req.body.matchedBonus;
             mynumbers.checkedYet = req.body.checkedYet;
             mynumbers.lottery = req.body.lottery;
 

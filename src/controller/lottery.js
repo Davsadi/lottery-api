@@ -74,6 +74,7 @@ export default({ config, db }) => {
             lottery.standardNumbers = req.body.standardNumbers;
             lottery.bonusNumber = req.body.bonusNumber;
             lottery.myNumbers.push(req.body.myNumbers);
+            res.json(req.body.myNumbers);
             lottery.save(err => {
                 if (err) {
                     res.send(err);

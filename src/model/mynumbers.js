@@ -20,7 +20,7 @@ let MyNumbersSchema = new Schema({
         required: true
     },
     checkedYet: {
-        type: String,
+        type: Boolean,
         default: false
     },
     matchedNumbers: [],

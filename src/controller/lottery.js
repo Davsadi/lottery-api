@@ -141,7 +141,7 @@ export default({ config, db }) => {
             mynumbers.drawDate = req.body.drawDate;
             mynumbers.standardNumbers = req.body.standardNumbers;
             mynumbers.bonusNumber = req.body.bonusNumber;
-            //MyNumbers.lottery = req.body.lottery;
+            mynumbers.lottery = req.body.lottery;
 
             mynumbers.save(err => {
                 if (err) {

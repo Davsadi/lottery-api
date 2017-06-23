@@ -26,7 +26,7 @@ export default({ config, db }) => {
                 res.send(err);
             }
             //res.json({ message: "Lottery saved successfully" });
-            res.json(newLottery.id;
+            res.json(newLottery.id);
         });
     });
 

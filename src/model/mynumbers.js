@@ -23,7 +23,7 @@ let MyNumbersSchema = new Schema({
         type: String,
         default: 'false'
     },
-    matchedNumbers: [],
+    matchedNumbers: [String],
     lottery: {
         type: Schema.Types.ObjectId,
         ref: 'Lottery'

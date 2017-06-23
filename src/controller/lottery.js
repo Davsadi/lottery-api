@@ -152,6 +152,18 @@ export default({ config, db }) => {
                 }
                 res.json({ message: "My Numbers updated successfully" });
             });
+
+            Lottery.findById(req.body.lottery._id, (err, lottery) => {
+                if (err) {
+                    res.send(err);
+                }
+                lottery.myNumbers.push(mynumbers);
+                lottery.save(err => {
+                    if (err) {
+                        res.send(err);
+                    }
+                    res.json({ message: "Lottery updated successfully" });
+                });
         });
     });
 

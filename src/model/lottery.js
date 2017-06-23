@@ -19,7 +19,7 @@ let LotterySchema = new Schema({
         type: Number,
         required: true
     },
-    mynumbers: [{ type: Schema.Types.ObjectId, ref: 'MyNumbers'}]
+    myNumbers: [{ type: Schema.Types.ObjectId, ref: 'MyNumbers'}]
 });
 
 module.exports = mongoose.model('Lottery', LotterySchema);

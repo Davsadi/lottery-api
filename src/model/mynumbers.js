@@ -19,11 +19,11 @@ let MyNumbersSchema = new Schema({
         type: Number,
         required: true
     },
-    checked: {
+    checkedYet: {
         type: String,
-        default: 'false'
+        default: false
     },
-    matchedNumbers: [String],
+    matchedNumbers: [],
     lottery: {
         type: Schema.Types.ObjectId,
         ref: 'Lottery'

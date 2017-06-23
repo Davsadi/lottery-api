@@ -136,7 +136,7 @@ export default({ config, db }) => {
         MyNumbers.findById(req.params.id, (err, mynumbers) => {
             if (err) {
                 res.send(err);
-            };
+            }
             mynumbers.gameType = req.body.gameType;
             mynumbers.drawDate = req.body.drawDate;
             mynumbers.standardNumbers = req.body.standardNumbers;
@@ -144,21 +144,14 @@ export default({ config, db }) => {
             //MyNumbers.lottery = req.body.lottery;
 
             mynumbers.save(err => {
-                            if (err) {
-                                res.send(err);
-                            }
-                            res.json({ message: "My Numbers updated successfully" });
-                        });
-                /*lottery.mynumbers.push(MyNumbers);
-                lottery.save(err => {
-                    if (err) {
-                        res.send(err);
-                    }
-                    res.json({ message: "My Numbers saved!"});
-                });*/
-
+                if (err) {
+                    res.send(err);
+                }
+                res.json({ message: "My Numbers updated successfully" });
+            });
         });
     });
+
 
 
     // Get all mynumbers for a specific lottery ID

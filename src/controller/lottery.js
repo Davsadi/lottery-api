@@ -142,7 +142,7 @@ export default({ config, db }) => {
             mynumbers.drawDate = req.body.drawDate;
             mynumbers.standardNumbers = req.body.standardNumbers;
             mynumbers.bonusNumber = req.body.bonusNumber;
-            if (req.body.matchedNumbers !== null){
+            if (req.body.matchedNumbers !== undefined){
                 mynumbers.matchedNumbers.push(req.body.matchedNumbers);
             }
             mynumbers.matchedBonus = req.body.matchedBonus;
@@ -153,8 +153,8 @@ export default({ config, db }) => {
                 if (err) {
                     res.send(err);
                 }
-                //res.json({ message: "My Numbers updated successfully" });
-                res.send(req.body.matchedNumbers);
+                res.json({ message: "My Numbers updated successfully" });
+                //res.send(req.body.matchedNumbers);
             });
         });
     });

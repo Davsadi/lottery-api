@@ -144,7 +144,7 @@ export default({ config, db }) => {
             mynumbers.bonusNumber = req.body.bonusNumber;
             if (req.body.matchedNumbers !== null){
                 mynumbers.matchedNumbers.push(req.body.matchedNumbers);
-            } 
+            }
             mynumbers.matchedBonus = req.body.matchedBonus;
             mynumbers.checkedYet = req.body.checkedYet;
             mynumbers.lottery = req.body.lottery;
@@ -153,7 +153,8 @@ export default({ config, db }) => {
                 if (err) {
                     res.send(err);
                 }
-                res.json({ message: "My Numbers updated successfully" });
+                //res.json({ message: "My Numbers updated successfully" });
+                res.send(req.body.matchedNumbers);
             });
         });
     });

@@ -154,7 +154,6 @@ export default({ config, db }) => {
                     res.send(err);
                 }
                 res.json({ message: "My Numbers updated successfully" });
-                //res.send(req.body.matchedNumbers);
             });
         });
     });

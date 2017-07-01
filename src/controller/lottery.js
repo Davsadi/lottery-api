@@ -9,7 +9,7 @@ export default({ config, db }) => {
     let api = Router();
 
 
-    api.use(function(req, res, next) {
+    /*api.use(function(req, res, next) {
       res.header('Access-Control-Allow-Origin', req.get('Origin') || '*');
       res.header('Access-Control-Allow-Credentials', 'true');
       res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
@@ -20,7 +20,7 @@ export default({ config, db }) => {
       } else {
         return next();
       }
-    });
+  });*/
 
 
 

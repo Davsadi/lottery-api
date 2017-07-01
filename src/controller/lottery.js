@@ -8,6 +8,22 @@ import { authenticate } from '../middleware/authMiddleware';
 export default({ config, db }) => {
     let api = Router();
 
+
+    api.use(function(req, res, next) {
+      res.header('Access-Control-Allow-Origin', req.get('Origin') || '*');
+      res.header('Access-Control-Allow-Credentials', 'true');
+      res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+      res.header('Access-Control-Expose-Headers', 'Content-Length');
+      res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range');
+      if (req.method === 'OPTIONS') {
+        return res.send(200);
+      } else {
+        return next();
+      }
+    });
+
+
+
     // CRUD - Create Read Update Delete
 
 
@@ -37,9 +53,9 @@ export default({ config, db }) => {
             if (err) {
                 res.send(err);
             }
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
-            res.header("Access-Control-Allow-Methods", "POST, GET");
+            //res.header("Access-Control-Allow-Origin", "*");
+            //res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
+            //res.header("Access-Control-Allow-Methods", "POST, GET");
             res.json(lotterys);
         });
     });

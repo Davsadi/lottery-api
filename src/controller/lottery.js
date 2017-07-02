@@ -59,7 +59,7 @@ export default({ config, db }) => {
     // '/v1/lottery/latest' - Read
     //Get latest lottery numbers
     api.get('/latest', (req, res) => {
-        Lottery.find({}, null, {sort: {drawDate: -1}}, (err, lotterys) => {
+        Lottery.find({}, null, {sort: {drawDate: 1}}, (err, lotterys) => {
             if (err) {
                 res.send(err);
             }

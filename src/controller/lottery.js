@@ -15,11 +15,7 @@ export default({ config, db }) => {
       res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
       res.header('Access-Control-Expose-Headers', 'Content-Length');
       res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range');
-      if (req.method === 'OPTIONS') {
-        return res.send(200);
-      } else {
-        return next();
-      }
+      return next();
   });
 
 
@@ -140,10 +136,15 @@ export default({ config, db }) => {
             newMyNumbers.drawDate = req.body.drawDate;
             newMyNumbers.standardNumbers = req.body.standardNumbers;
             newMyNumbers.bonusNumber = req.body.bonusNumber;
+
+            //console.log(req.body);
+
             newMyNumbers.save((err, mynumbers) => {
                 if (err) {
                     res.send(err);
+                    console.log(err);
                 }
+                //console.log(res.sendStatus());
                 res.json({ message: "My Numbers saved successfully" });
             });
         });

@@ -176,7 +176,7 @@ export default({ config, db }) => {
             mynumbers.drawDate = req.body.drawDate;
             mynumbers.standardNumbers = req.body.standardNumbers;
             mynumbers.bonusNumber = req.body.bonusNumber;
-            if (req.body.matchedNumbers !== undefined){
+            if (req.body.matchedNumbers !== null){
                 mynumbers.matchedNumbers.push(req.body.matchedNumbers);
             }
             mynumbers.matchedBonus = req.body.matchedBonus;

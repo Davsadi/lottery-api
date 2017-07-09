@@ -49,9 +49,6 @@ export default({ config, db }) => {
             if (err) {
                 res.send(err);
             }
-            //res.header("Access-Control-Allow-Origin", "*");
-            //res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
-            //res.header("Access-Control-Allow-Methods", "POST, GET");
             res.json(lotterys);
         });
     });
@@ -59,13 +56,10 @@ export default({ config, db }) => {
     // '/v1/lottery/latest' - Read
     //Get latest lottery numbers
     api.get('/latest', (req, res) => {
-        Lottery.find({}, null, {sort: {drawDate: -1}}, (err, lotterys) => {
+        Lottery.find({}, null, {sort: {drawDate: -1}, limit: 1}, (err, lotterys) => {
             if (err) {
                 res.send(err);
             }
-            //res.header("Access-Control-Allow-Origin", "*");
-            //res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
-            //res.header("Access-Control-Allow-Methods", "POST, GET");
             res.json(lotterys);
         });
     });

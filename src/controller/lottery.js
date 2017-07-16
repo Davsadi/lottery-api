@@ -75,6 +75,17 @@ export default({ config, db }) => {
         });
     });
 
+    // '/v1/lottery/mynumbers' - Read
+    //Get all my numbers for a given lottery ID
+    api.get('/mynumbers/:id', (req, res) => {
+        MyNumbers.find({lottery: req.params.id}, (err, mynumbers) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(mynumbers);
+        });
+    });
+
     // '/v1/lottery/:id' - Read
     //Get one lottery
     api.get('/:id', (req, res) => {

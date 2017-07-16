@@ -43,9 +43,9 @@ export default({ config, db }) => {
     });
 
     // '/v1/lottery/' - Read
-    //Get all lotteries
+    //Get all lotteries, orded by drawDate descending
     api.get('/', (req, res) => {
-        Lottery.find({}, (err, lotterys) => {
+        Lottery.find({}, null, {sort: {drawDate: -1}, (err, lotterys) => {
             if (err) {
                 res.send(err);
             }
